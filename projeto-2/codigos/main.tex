@@ -1,0 +1,175 @@
+\documentclass[
+    12pt,
+    openright,
+    oneside,
+    a4paper,
+    brazil
+]{abntex2}
+
+% Pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{float}
+\usepackage{csvsimple}
+\usepackage{hyperref}
+
+% Configuração de links azuis
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% Informações do trabalho
+\titulo{Rede Meteorológica com Regador Inteligente}
+\autor{Henry Thomaz Oliveira Campos}
+\instituicao{
+  Programa de Iniciação Científica e Tecnológica do Estado de Mato Grosso do Sul 2025
+}
+\local{Brasil}
+\data{2025}
+\orientador{Carlos Roberto Santos Junior}
+
+\begin{document}
+
+% Capa
+\imprimircapa
+
+% Folha de rosto
+\imprimirfolhaderosto*
+
+% Sumário
+\renewcommand{\contentsname}{SUMÁRIO}
+\tableofcontents
+\cleardoublepage
+
+% Conteúdo
+
+\section{Introdução}
+Este projeto tem como objetivo desenvolver uma rede de estações meteorológicas 
+domésticas, capazes de monitorar dados climáticos (temperatura, umidade do ar, umidade 
+do solo, chuva) e atuar de forma automática no acionamento de um regador inteligente. 
+A ideia é evoluir em fases, começando com um protótipo funcional em uma única residência e 
+chegando até uma rede colaborativa de estações interligadas com previsão via Inteligência 
+Artificial.
+
+\section{Justificativa}
+O projeto busca resolver problemas práticos como:
+\begin{itemize}
+  \item Uso consciente de água na irrigação;
+  \item Monitoramento climático acessível e comunitário;
+  \item Educação tecnológica (eletrônica, IoT, programação e IA).
+\end{itemize}
+
+Além disso, se alinha com sustentabilidade e cidades inteligentes, dois temas de grande 
+relevância.
+
+\section{Objetivos}
+
+\subsection{Geral}
+Criar uma rede de estações meteorológicas inteligentes interligadas, com irrigação 
+automatizada e integração de IA.  
+
+\subsection{Específicos}
+\begin{enumerate}
+  \item Desenvolver protótipo inicial com ESP32, sensores e bomba d’água;
+  \item Registrar dados meteorológicos em nuvem (Firebase/Supabase);
+  \item Criar um painel web interativo com mapas e gráficos;
+  \item Evoluir para rede colaborativa multiusuário;
+  \item Implementar previsão climática com Inteligência Artificial.
+\end{enumerate}
+
+\section{Etapas do Projeto}
+
+\subsection{Fase 1 – Protótipo básico (MVP)}  
+Montagem com ESP32, sensores de solo e ar, bomba controlada via relé.  
+Regras simples: “se solo seco → liga rega / se chuva → não rega”.  
+Envio de dados para servidor gratuito.  
+Site básico para visualização.  
+
+\subsection{Fase 2 – Dados históricos e mapa}  
+Armazenamento em banco de dados na nuvem.  
+Visualização em mapa interativo com OpenStreetMap + Leaflet.  
+Gráficos históricos com Chart.js.  
+
+\subsection{Fase 3 – Rede de estações (multi-casa)}  
+Cadastro de usuários e estações.  
+Compartilhamento de dados entre vizinhos, familiares e comunidade.  
+
+\subsection{Fase 4 – Inteligência Artificial}  
+Treinamento de modelos de regressão/IA para prever variáveis climáticas.  
+Exibição de dados reais + previstos no painel.  
+
+\section{Protótipo Inicial – Estação Meteorológica}
+Este é um protótipo inicial do projeto (Redes Meteorológicas). Ele é a base do 
+projeto, mas muitas coisas mudarão, como o Arduino, que será substituído por um ESP32; o 
+botão, que se tornará um sensor de chuva mais sofisticado; o potenciômetro, que será 
+substituído por um sensor de velocidade do vento; o inversor, relés e o motor DC, que 
+serão substituídos por uma bomba d’água.  
+
+\vspace{0.5cm}
+
+\textbf{Link do Protótipo:} 
+\href{https://www.tinkercad.com/things/6btDA0XZOrf-estacao-meteorologica}{link-projeto}
+
+\medskip
+
+\textbf{Esquema do Protótipo:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Estação Meteorológica_page-0001.jpg}
+    \caption{Esquema do Protótipo}
+    \label{fig:protótipo}
+\end{figure}
+
+\medskip
+
+\textbf{Lista de Componentes (BOM):}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Código & Quantidade & Componente \\
+\hline
+\csvreader[head to column names]{bom.csv}{}%
+{\csvcoli & \csvcolii & \csvcoliii \\ \hline}
+\end{tabular}
+\caption{Lista de Componentes do Protótipo (BOM)}
+\label{tab:bom}
+\end{table}
+
+\section{Impacto Educacional e Social}
+\begin{itemize}
+  \item Promover aprendizagem em eletrônica, programação e ciência de dados;
+  \item Incentivar o uso consciente da água;
+  \item Pode ser expandido para escolas e comunidades como ferramenta de ensino;
+  \item Usa cada estação para mesclar os dados em um mapa como diagramas de Venn e 
+        fazer previsões meteorológicas mais avançadas.
+\end{itemize}
+
+\section{Conclusão}
+O projeto vai além de um simples regador: é uma iniciativa de ciência cidadã, que conecta 
+tecnologia, sustentabilidade e comunidade. Com um protótipo já iniciado e planejamento 
+estruturado, o projeto tem grande potencial.
+
+\begin{thebibliography}{99}
+
+\bibitem{tinkercad} TINKERCAD. Protótipo base no Tinkercad. Disponível em: \href{https://www.tinkercad.com/things/3Hd7QsF61PI-regador-inteligente}{link-projeto}. Acesso em: 20 set. 2025.
+
+\bibitem{firebase} GOOGLE. Firebase Documentation. Disponível em: \href{https://firebase.google.com/docs}{Firebase}. Acesso em: 20 set. 2025.
+
+\bibitem{leaflet} LEAFLET. Leaflet.js. Disponível em: \href{https://leafletjs.com/}{Leaflet.js}. Acesso em: 20 set. 2025.
+
+\bibitem{chartjs} CHART.JS. Chart.js Documentation. Disponível em: \href{https://www.chartjs.org/}{Chart.js}. Acesso em: 20 set. 2025.
+
+\bibitem{manualmundo} MANUAL DO MUNDO. Disponível em: \href{https://youtu.be/_xRyePvaMqU?si=kJ5MQaMxgp4OxUS8}{vídeo}. Acesso em: 20 set. 2025.
+
+\end{thebibliography}
+
+\end{document}
