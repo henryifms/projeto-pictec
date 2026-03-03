@@ -1,2 +1,2 @@
 # projetos-pictec
-Projeto: chip de consciência-artificial
+   Estação Meteorológica Automática (EMA)
